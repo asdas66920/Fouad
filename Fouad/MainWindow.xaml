@@ -1,0 +1,66 @@
+<Window x:Class="Fouad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fouad"
+        xmlns:views="clr-namespace:Fouad.Views"
+        mc:Ignorable="d"
+        Title="Fouad - Easier Searching" Height="700" Width="1200"
+        FlowDirection="LeftToRight">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <!-- TopBar -->
+            <RowDefinition Height="50"/>
+            <!-- InfoBar -->
+            <RowDefinition Height="60"/>
+            <!-- ColumnSelector -->
+            <RowDefinition Height="*"/>
+            <!-- Main Content Area -->
+        </Grid.RowDefinitions>
+
+        <!-- Top Bar -->
+        <views:TopBarView Grid.Row="0" Margin="0,0,0,0" DataContext="{Binding TopBar}"/>
+
+        <!-- Info Bar -->
+        <views:InfoBarView Grid.Row="1" Margin="0,0,0,0" DataContext="{Binding InfoBar}"/>
+
+        <!-- Column Selector -->
+        <views:ColumnSelectorView Grid.Row="2" Margin="0,0,0,0" DataContext="{Binding ColumnSelector}"/>
+
+        <!-- Main Content Area with SideBar and Tables -->
+        <Grid Grid.Row="3" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <!-- SideBar -->
+                <ColumnDefinition Width="*"/>
+                <!-- Main Content -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Side Bar -->
+            <views:SideBarView Grid.Column="0" Margin="0,0,5,0" DataContext="{Binding SideBar}"/>
+
+            <!-- Main Content (Results and History Tables) -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <!-- Results Table -->
+                    <RowDefinition Height="5"/>
+                    <!-- Spacer -->
+                    <RowDefinition Height="244.52"/>
+                    <!-- History Table -->
+                </Grid.RowDefinitions>
+
+                <!-- Results Table -->
+                <views:ResultsTableView Grid.Row="0" DataContext="{Binding ResultsTable}"/>
+
+                <!-- Spacer -->
+                <Grid Grid.Row="1" Background="Transparent"/>
+
+                <!-- History Table -->
+                <views:HistoryTableView Grid.Row="2" DataContext="{Binding HistoryTable}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

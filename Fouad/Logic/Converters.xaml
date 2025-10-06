@@ -1,0 +1,26 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:Fouad.Converters">
+    
+    <!-- Boolean to Visibility Converter -->
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    
+    <!-- Inverse Boolean Converter -->
+    <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    
+    <!-- Null to Visibility Converter -->
+    <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+    
+    <!-- String to Upper Converter -->
+    <converters:StringToUpperConverter x:Key="StringToUpperConverter"/>
+    
+    <!-- String to Lower Converter -->
+    <converters:StringToLowerConverter x:Key="StringToLowerConverter"/>
+    
+    <!-- Boolean to Flow Direction Converter -->
+    <converters:BooleanToFlowDirectionConverter x:Key="BooleanToFlowDirectionConverter"/>
+    
+    <!-- Search Highlight Converter -->
+    <converters:SearchHighlightConverter x:Key="SearchHighlightConverter"/>
+    
+</ResourceDictionary>

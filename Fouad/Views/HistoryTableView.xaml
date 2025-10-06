@@ -1,0 +1,150 @@
+<UserControl x:Class="Fouad.Views.HistoryTableView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Fouad.Views"
+             xmlns:converters="clr-namespace:Fouad.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="800">
+    <Grid x:Name="HistoryTableGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Modern Header with Title and Buttons -->
+        <Border Grid.Row="0" 
+                Background="{StaticResource HistoryHeaderBackground}" 
+                BorderBrush="{StaticResource BorderBrush}" 
+                BorderThickness="0,0,0,1" 
+                MinHeight="60">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="HistoryTitleLabel" Grid.Column="0" 
+                           Text="History" 
+                           Style="{StaticResource ModernHeaderTextBlockStyle}"
+                           Margin="15,0"
+                           VerticalAlignment="Center"/>
+
+                <ScrollViewer Grid.Column="1" 
+                              HorizontalScrollBarVisibility="Auto" 
+                              VerticalScrollBarVisibility="Hidden"
+                              Margin="0,5">
+                    <StackPanel x:Name="HistoryButtonsPanel" 
+                                Orientation="Horizontal" 
+                                Margin="0,5,15,5">
+                        <!-- Selection Controls -->
+                        <Button x:Name="SelectAllButton" 
+                                Content="Select All" 
+                                Width="100" 
+                                Height="35" 
+                                Margin="0,0,5,0"
+                                Style="{StaticResource ModernPrimaryButtonStyle}"
+                                Command="{Binding ToggleAllCommand}"/>
+                        
+                        <!-- Action Buttons -->
+                        <Button x:Name="DeleteButton" 
+                                Content="Delete" 
+                                Width="80" 
+                                Height="35" 
+                                Margin="0,0,5,0"
+                                Style="{StaticResource ModernDeleteButtonStyle}"
+                                Command="{Binding DeleteCommand}"/>
+                        
+                        <Button x:Name="EditButton" 
+                                Content="Edit" 
+                                Width="80" 
+                                Height="35" 
+                                Margin="0,0,5,0"
+                                Style="{StaticResource ModernSecondaryButtonStyle}"
+                                Command="{Binding EditCommand}"/>
+                        
+                        <Button x:Name="CopyButton" 
+                                Content="Copy" 
+                                Width="80" 
+                                Height="35" 
+                                Margin="0,0,5,0"
+                                Style="{StaticResource ModernInfoButtonStyle}"
+                                Command="{Binding CopyCommand}"/>
+                        
+                        <!-- Export Options -->
+                        <Button x:Name="ExportToExcelButton" 
+                                Content="Export to Excel" 
+                                Width="120" 
+                                Height="35" 
+                                Margin="0,0,5,0"
+                                Style="{StaticResource ModernSuccessButtonStyle}"
+                                Command="{Binding ExportToExcelCommand}"/>
+                        
+                        <Button x:Name="ExportToPdfButton" 
+                                Content="Export to PDF" 
+                                Width="120" 
+                                Height="35" 
+                                Margin="0,0,5,0"
+                                Style="{StaticResource ModernInfoButtonStyle}"
+                                Command="{Binding ExportToPdfCommand}"/>
+                        
+                        <!-- Additional Services -->
+                        <Button x:Name="BackupSelectedButton" 
+                                Content="Backup" 
+                                Width="80" 
+                                Height="35" 
+                                Margin="0,0,5,0"
+                                Style="{StaticResource ModernAccentButtonStyle}"
+                                Command="{Binding BackupSelectedCommand}"/>
+                        
+                        <Button x:Name="ShareButton" 
+                                Content="Share" 
+                                Width="80" 
+                                Height="35" 
+                                Style="{StaticResource ModernPrimaryButtonStyle}"
+                                Command="{Binding ShareCommand}"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+        <!-- Modern DataGrid for History with frozen columns -->
+        <DataGrid x:Name="HistoryDataGrid"
+                  Grid.Row="1" 
+                  ItemsSource="{Binding HistoryItems}" 
+                  AutoGenerateColumns="False"
+                  EnableRowVirtualization="True"
+                  VirtualizingPanel.VirtualizationMode="Recycling"
+                  Style="{StaticResource ModernDataGridStyle}"
+                  ColumnHeaderStyle="{StaticResource ModernDataGridColumnHeaderStyle}"
+                  RowStyle="{StaticResource ModernDataGridRowStyle}"
+                  SelectionMode="Extended"
+                  SelectionUnit="FullRow"
+                  HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto"
+                  FrozenColumnCount="2">
+            <!-- Add modern column definitions -->
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="Select" 
+                                        Binding="{Binding IsSelected}" 
+                                        Width="Auto"/>
+                <DataGridTextColumn Header="ID" 
+                                    Binding="{Binding Id}" 
+                                    Width="Auto"/>
+                <DataGridTextColumn Header="File Name" 
+                                    Binding="{Binding FileName}" 
+                                    Width="*"/>
+                <DataGridTextColumn Header="Content" 
+                                    Binding="{Binding Content}" 
+                                    Width="2*"/>
+                <DataGridTextColumn Header="Match Count" 
+                                    Binding="{Binding MatchCount}" 
+                                    Width="Auto"/>
+                <DataGridTextColumn Header="Search Date" 
+                                    Binding="{Binding SearchDate, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}" 
+                                    Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

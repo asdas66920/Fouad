@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows10.0.20348.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <UseWindowsForms>True</UseWindowsForms>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Themes\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Templates\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Logic\" />
+    <Folder Include="Components\" />
+    <Folder Include="Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EPPlus" />
+    <PackageReference Include="NAudio" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="CsvHelper" />
+  </ItemGroup>
+</Project>

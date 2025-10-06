@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSTest" Version="4.0.0-preview.25415.9" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="9.3.0" />
+    <PackageReference Include="EPPlus" Version="8.2.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
+  </ItemGroup>
+
+  <!-- Add reference to the main Fouad project -->
+  <ItemGroup>
+    <ProjectReference Include="..\Fouad\Fouad.csproj" />
+  </ItemGroup>
+
+</Project>

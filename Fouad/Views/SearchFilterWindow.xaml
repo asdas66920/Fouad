@@ -1,0 +1,602 @@
+<Window x:Class="Fouad.Views.SearchFilterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fouad.Views"
+        mc:Ignorable="d"
+        Title="{DynamicResource SearchFilterWindowTitle}" 
+        Height="800" 
+        Width="1000"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="{StaticResource PrimaryBackgroundBrush}" Padding="15">
+            <TextBlock Text="{DynamicResource SearchFilterHeader}" 
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       Foreground="{StaticResource ForegroundBrush}"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- Filter Options with Horizontal Layout and Scroll -->
+        <ScrollViewer Grid.Row="1" Padding="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical">
+                <!-- Search Term Section -->
+                <GroupBox Header="{DynamicResource SearchFilterHeader}" Margin="0,0,0,15" Padding="10">
+                    <StackPanel>
+                        <TextBox x:Name="SearchTermTextBox" 
+                                 Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}"
+                                 Margin="0,5"
+                                 Padding="5">
+                            <TextBox.ToolTip>
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold" Text="{DynamicResource SearchFilterHeader}" Margin="0,0,0,5"/>
+                                    <TextBlock Text="أدخل مصطلح البحث هنا / Enter search term here"/>
+                                </StackPanel>
+                            </TextBox.ToolTip>
+                        </TextBox>
+                        
+                        <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
+                            <CheckBox x:Name="CaseSensitiveCheckBox" 
+                                      Content="{DynamicResource CaseSensitive}"
+                                      IsChecked="{Binding IsCaseSensitive}"
+                                      Margin="0,0,20,0">
+                                <CheckBox.ToolTip>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="{DynamicResource CaseSensitive}" Margin="0,0,0,5"/>
+                                        <TextBlock Text="البحث مع مراعاة الأحرف الكبيرة والصغيرة / Search with case sensitivity"/>
+                                    </StackPanel>
+                                </CheckBox.ToolTip>
+                            </CheckBox>
+                            
+                            <CheckBox x:Name="ExactMatchCheckBox" 
+                                      Content="مطابقة دقيقة / Exact Match"
+                                      IsChecked="{Binding ExactMatch}"
+                                      Margin="0,0,20,0">
+                                <CheckBox.ToolTip>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="مطابقة دقيقة / Exact Match" Margin="0,0,0,5"/>
+                                        <TextBlock Text="البحث عن مصطلحات مطابقة تماماً / Search for exact matching terms"/>
+                                    </StackPanel>
+                                </CheckBox.ToolTip>
+                            </CheckBox>
+                            
+                            <CheckBox x:Name="FuzzySearchCheckBox" 
+                                      Content="بحث تقريبي / Fuzzy Search"
+                                      IsChecked="{Binding FuzzySearch}"
+                                      Margin="0,0,20,0">
+                                <CheckBox.ToolTip>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="بحث تقريبي / Fuzzy Search" Margin="0,0,0,5"/>
+                                        <TextBlock Text="البحث مع السماح بالأخطاء الصغيرة / Search allowing for small errors"/>
+                                    </StackPanel>
+                                </CheckBox.ToolTip>
+                            </CheckBox>
+                            
+                            <CheckBox x:Name="RegexSearchCheckBox" 
+                                      Content="تعبيرات منطقية / Regular Expression"
+                                      IsChecked="{Binding RegexSearch}">
+                                <CheckBox.ToolTip>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="تعبيرات منطقية / Regular Expression" Margin="0,0,0,5"/>
+                                        <TextBlock Text="استخدام التعبيرات المنطقية في البحث / Use regular expressions in search"/>
+                                    </StackPanel>
+                                </CheckBox.ToolTip>
+                            </CheckBox>
+                        </StackPanel>
+                        
+                        <TextBlock Text="وضعية البحث / Search Mode:" FontWeight="Bold" Margin="0,10,0,5"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <RadioButton x:Name="AllWordsRadioButton" 
+                                         Content="كل الكلمات / All Words"
+                                         IsChecked="{Binding IsAllWordsSearch}"
+                                         Margin="0,0,20,0">
+                                <RadioButton.ToolTip>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="كل الكلمات / All Words" Margin="0,0,0,5"/>
+                                        <TextBlock Text="البحث عن جميع الكلمات / Search for all words"/>
+                                    </StackPanel>
+                                </RadioButton.ToolTip>
+                            </RadioButton>
+                            
+                            <RadioButton x:Name="AnyWordRadioButton" 
+                                         Content="أي كلمة / Any Word"
+                                         IsChecked="{Binding IsAnyWordSearch}"
+                                         Margin="0,0,20,0">
+                                <RadioButton.ToolTip>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="أي كلمة / Any Word" Margin="0,0,0,5"/>
+                                        <TextBlock Text="البحث عن أي من الكلمات / Search for any of the words"/>
+                                    </StackPanel>
+                                </RadioButton.ToolTip>
+                            </RadioButton>
+                            
+                            <RadioButton x:Name="PhraseRadioButton" 
+                                         Content="عبارة كاملة / Exact Phrase"
+                                         IsChecked="{Binding IsPhraseSearch}">
+                                <RadioButton.ToolTip>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="عبارة كاملة / Exact Phrase" Margin="0,0,0,5"/>
+                                        <TextBlock Text="البحث عن العبارة بالضبط / Search for the exact phrase"/>
+                                    </StackPanel>
+                                </RadioButton.ToolTip>
+                            </RadioButton>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Horizontal Filter Sections with Scroll Viewer -->
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="Auto">
+                    <StackPanel Orientation="Horizontal">
+                        <!-- Column Filters -->
+                        <GroupBox Header="مرشحات الأعمدة / Column Filters" Margin="0,0,15,15" Padding="10" Width="400">
+                            <StackPanel>
+                                <CheckBox x:Name="EnableColumnFilterCheckBox" 
+                                          Content="تمكين مرشح الأعمدة / Enable Column Filtering"
+                                          IsChecked="{Binding EnableColumnFilter}"
+                                          Margin="0,5">
+                                    <CheckBox.ToolTip>
+                                        <StackPanel>
+                                            <TextBlock FontWeight="Bold" Text="تمكين مرشح الأعمدة / Enable Column Filtering" Margin="0,0,0,5"/>
+                                            <TextBlock Text="تفعيل تصفية النتائج حسب الأعمدة / Enable filtering results by columns"/>
+                                        </StackPanel>
+                                    </CheckBox.ToolTip>
+                                </CheckBox>
+                                
+                                <Grid Margin="0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <ListBox x:Name="AvailableColumnsListBox" 
+                                             Grid.Column="0"
+                                             ItemsSource="{Binding AvailableColumns}"
+                                             Margin="0,0,10,0"
+                                             Height="200"
+                                             SelectionMode="Multiple">
+                                        <ListBox.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="الأعمدة المتاحة / Available Columns" Margin="0,0,0,5"/>
+                                                <TextBlock Text="اختر الأعمدة المتاحة للتصفية / Select available columns for filtering"/>
+                                            </StackPanel>
+                                        </ListBox.ToolTip>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <CheckBox Content="{Binding Name}" 
+                                                          IsChecked="{Binding IsSelected}"
+                                                          Margin="5">
+                                                    <CheckBox.ToolTip>
+                                                        <StackPanel>
+                                                            <TextBlock FontWeight="Bold" Text="تحديد العمود / Select Column" Margin="0,0,0,5"/>
+                                                            <TextBlock Text="اختر هذا العمود للتضمين في التصفية / Select this column to include in filtering"/>
+                                                        </StackPanel>
+                                                    </CheckBox.ToolTip>
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                    
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                        <Button Content="&gt;&gt;" 
+                                                Command="{Binding AddColumnCommand}"
+                                                Margin="0,5">
+                                            <Button.ToolTip>
+                                                <StackPanel>
+                                                    <TextBlock FontWeight="Bold" Text="إضافة إلى المحدد / Add to Selected" Margin="0,0,0,5"/>
+                                                    <TextBlock Text="إضافة الأعمدة المحددة إلى قائمة المحدد / Add selected columns to the selected list"/>
+                                                </StackPanel>
+                                            </Button.ToolTip>
+                                        </Button>
+                                        <Button Content="&lt;&lt;" 
+                                                Command="{Binding RemoveColumnCommand}"
+                                                Margin="0,5">
+                                            <Button.ToolTip>
+                                                <StackPanel>
+                                                    <TextBlock FontWeight="Bold" Text="إزالة من المحدد / Remove from Selected" Margin="0,0,0,5"/>
+                                                    <TextBlock Text="إزالة الأعمدة المحددة من قائمة المحدد / Remove selected columns from the selected list"/>
+                                                </StackPanel>
+                                            </Button.ToolTip>
+                                        </Button>
+                                    </StackPanel>
+                                    
+                                    <ListBox x:Name="SelectedColumnsListBox" 
+                                             Grid.Column="2"
+                                             ItemsSource="{Binding SelectedColumns}"
+                                             Margin="10,0,0,0"
+                                             Height="200"
+                                             SelectionMode="Multiple">
+                                        <ListBox.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="الأعمدة المحددة / Selected Columns" Margin="0,0,0,5"/>
+                                                <TextBlock Text="الأعمدة المحددة للتصفية / Selected columns for filtering"/>
+                                            </StackPanel>
+                                        </ListBox.ToolTip>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Name}" Margin="5">
+                                                    <TextBlock.ToolTip>
+                                                        <StackPanel>
+                                                            <TextBlock FontWeight="Bold" Text="العمود المحدد / Selected Column" Margin="0,0,0,5"/>
+                                                            <TextBlock Text="هذا العمود محدد للتصفية / This column is selected for filtering"/>
+                                                        </StackPanel>
+                                                    </TextBlock.ToolTip>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </Grid>
+                                
+                                <!-- Column Value Filters -->
+                                <TextBlock Text="مرشحات قيمة الأعمدة / Column Value Filters:" FontWeight="Bold" Margin="0,15,0,5"/>
+                                <DataGrid x:Name="ColumnValueFiltersDataGrid"
+                                          ItemsSource="{Binding ColumnValueFilters}"
+                                          AutoGenerateColumns="False"
+                                          Height="150"
+                                          Margin="0,5"
+                                          SelectionMode="Extended"
+                                          SelectionUnit="FullRow"
+                                          SelectionChanged="ColumnValueFiltersDataGrid_SelectionChanged">
+                                    <DataGrid.ToolTip>
+                                        <StackPanel>
+                                            <TextBlock FontWeight="Bold" Text="مرشحات قيمة الأعمدة / Column Value Filters" Margin="0,0,0,5"/>
+                                            <TextBlock Text="تحديد قواعد التصفية لقيم الأعمدة / Define filtering rules for column values"/>
+                                        </StackPanel>
+                                    </DataGrid.ToolTip>
+                                    <DataGrid.Columns>
+                                        <DataGridCheckBoxColumn Header="Select" 
+                                                               Binding="{Binding IsSelected}" 
+                                                               Width="50"/>
+                                        <DataGridComboBoxColumn Header="العمود / Column" 
+                                                                SelectedItemBinding="{Binding ColumnName}"
+                                                                ItemsSource="{Binding DataContext.AvailableColumns, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+                                        <DataGridComboBoxColumn Header="العامل / Operator" 
+                                                                SelectedItemBinding="{Binding Operator}"
+                                                                ItemsSource="{Binding DataContext.FilterOperators, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+                                        <DataGridTextColumn Header="القيمة / Value" 
+                                                            Binding="{Binding Value}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                
+                                <StackPanel Orientation="Horizontal" Margin="0,5">
+                                    <Button Content="إضافة مرشح / Add Filter" 
+                                            Command="{Binding AddColumnValueFilterCommand}"
+                                            Margin="0,0,10,0">
+                                        <Button.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="إضافة مرشح / Add Filter" Margin="0,0,0,5"/>
+                                                <TextBlock Text="إضافة قاعدة تصفية جديدة / Add a new filtering rule"/>
+                                            </StackPanel>
+                                        </Button.ToolTip>
+                                    </Button>
+                                    <Button Content="إزالة المرشح / Remove Filter" 
+                                            Command="{Binding RemoveColumnValueFilterCommand}">
+                                        <Button.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="إزالة المرشح / Remove Filter" Margin="0,0,0,5"/>
+                                                <TextBlock Text="إزالة قاعدة التصفية المحددة / Remove the selected filtering rule"/>
+                                            </StackPanel>
+                                        </Button.ToolTip>
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <!-- Date Range -->
+                        <GroupBox Header="نطاق التاريخ / Date Range" Margin="0,0,15,15" Padding="10" Width="400">
+                            <StackPanel>
+                                <CheckBox x:Name="EnableDateRangeCheckBox" 
+                                          Content="تمكين مرشح نطاق التاريخ / Enable Date Range Filter"
+                                          IsChecked="{Binding EnableDateRange}"
+                                          Margin="0,5">
+                                    <CheckBox.ToolTip>
+                                        <StackPanel>
+                                            <TextBlock FontWeight="Bold" Text="تمكين مرشح نطاق التاريخ / Enable Date Range Filter" Margin="0,0,0,5"/>
+                                            <TextBlock Text="تفعيل تصفية النتائج حسب نطاق التاريخ / Enable filtering results by date range"/>
+                                        </StackPanel>
+                                    </CheckBox.ToolTip>
+                                </CheckBox>
+                                
+                                <Grid Margin="0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <DatePicker Grid.Column="0" 
+                                                SelectedDate="{Binding StartDate}"
+                                                IsEnabled="{Binding EnableDateRange}"
+                                                Margin="0,0,10,0">
+                                        <DatePicker.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="تاريخ البدء / Start Date" Margin="0,0,0,5"/>
+                                                <TextBlock Text="حدد تاريخ البدء للتصفية / Select the start date for filtering"/>
+                                            </StackPanel>
+                                        </DatePicker.ToolTip>
+                                    </DatePicker>
+                                    
+                                    <TextBlock Grid.Column="1" 
+                                               Text="إلى / to" 
+                                               VerticalAlignment="Center" 
+                                               Margin="10,0"/>
+                                    
+                                    <DatePicker Grid.Column="2" 
+                                                SelectedDate="{Binding EndDate}"
+                                                IsEnabled="{Binding EnableDateRange}"
+                                                Margin="10,0,0,0">
+                                        <DatePicker.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="تاريخ الانتهاء / End Date" Margin="0,0,0,5"/>
+                                                <TextBlock Text="حدد تاريخ الانتهاء للتصفية / Select the end date for filtering"/>
+                                            </StackPanel>
+                                        </DatePicker.ToolTip>
+                                    </DatePicker>
+                                </Grid>
+                                
+                                <TextBlock Text="نطاق الوقت / Time Range:" FontWeight="Bold" Margin="0,15,0,5"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox x:Name="EnableTimeRangeCheckBox" 
+                                              Content="تمكين نطاق الوقت / Enable Time Range"
+                                              IsChecked="{Binding EnableTimeRange}"
+                                              Margin="0,0,20,0">
+                                        <CheckBox.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="تمكين نطاق الوقت / Enable Time Range" Margin="0,0,0,5"/>
+                                                <TextBlock Text="تفعيل تصفية النتائج حسب نطاق الوقت / Enable filtering results by time range"/>
+                                            </StackPanel>
+                                        </CheckBox.ToolTip>
+                                    </CheckBox>
+                                    
+                                    <TextBox x:Name="StartTimeTextBox" 
+                                             Text="{Binding StartTime}"
+                                             Width="100"
+                                             IsEnabled="{Binding EnableTimeRange}"
+                                             Margin="0,0,10,0">
+                                        <TextBox.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="وقت البدء / Start Time" Margin="0,0,0,5"/>
+                                                <TextBlock Text="أدخل وقت البدء (HH:MM) / Enter start time (HH:MM)"/>
+                                            </StackPanel>
+                                        </TextBox.ToolTip>
+                                    </TextBox>
+                                    
+                                    <TextBlock Text="إلى / to" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                    
+                                    <TextBox x:Name="EndTimeTextBox" 
+                                             Text="{Binding EndTime}"
+                                             Width="100"
+                                             IsEnabled="{Binding EnableTimeRange}">
+                                        <TextBox.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="وقت الانتهاء / End Time" Margin="0,0,0,5"/>
+                                                <TextBlock Text="أدخل وقت الانتهاء (HH:MM) / Enter end time (HH:MM)"/>
+                                            </StackPanel>
+                                        </TextBox.ToolTip>
+                                    </TextBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <!-- Additional Filters Column -->
+                        <StackPanel Orientation="Vertical">
+                            <!-- Value Range Filters -->
+                            <GroupBox Header="مرشحات نطاق القيم / Value Range Filters" Margin="0,0,0,15" Padding="10" Width="400">
+                                <StackPanel>
+                                    <DataGrid x:Name="ValueRangeFiltersDataGrid"
+                                              ItemsSource="{Binding ValueRangeFilters}"
+                                              AutoGenerateColumns="False"
+                                              Height="150"
+                                              Margin="0,5"
+                                              SelectionMode="Extended"
+                                              SelectionUnit="FullRow"
+                                              SelectionChanged="ValueRangeFiltersDataGrid_SelectionChanged">
+                                        <DataGrid.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="مرشحات نطاق القيم / Value Range Filters" Margin="0,0,0,5"/>
+                                                <TextBlock Text="تحديد نطاقات القيم للأعمدة الرقمية / Define value ranges for numeric columns"/>
+                                            </StackPanel>
+                                        </DataGrid.ToolTip>
+                                        <DataGrid.Columns>
+                                            <DataGridCheckBoxColumn Header="Select" 
+                                                                   Binding="{Binding IsSelected}" 
+                                                                   Width="50"/>
+                                            <DataGridComboBoxColumn Header="العمود / Column" 
+                                                                    SelectedItemBinding="{Binding ColumnName}"
+                                                                    ItemsSource="{Binding DataContext.NumericColumns, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+                                            <DataGridTextColumn Header="القيمة الدنيا / Min Value" 
+                                                                Binding="{Binding MinValue}"/>
+                                            <DataGridTextColumn Header="القيمة القصوى / Max Value" 
+                                                                Binding="{Binding MaxValue}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                    
+                                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                                        <Button Content="إضافة مرشح نطاق / Add Range Filter" 
+                                                Command="{Binding AddValueRangeFilterCommand}"
+                                                Margin="0,0,10,0">
+                                            <Button.ToolTip>
+                                                <StackPanel>
+                                                    <TextBlock FontWeight="Bold" Text="إضافة مرشح نطاق / Add Range Filter" Margin="0,0,0,5"/>
+                                                    <TextBlock Text="إضافة قاعدة نطاق جديدة / Add a new range rule"/>
+                                                </StackPanel>
+                                            </Button.ToolTip>
+                                        </Button>
+                                        <Button Content="إزالة مرشح النطاق / Remove Range Filter" 
+                                                Command="{Binding RemoveValueRangeFilterCommand}">
+                                            <Button.ToolTip>
+                                                <StackPanel>
+                                                    <TextBlock FontWeight="Bold" Text="إزالة مرشح النطاق / Remove Range Filter" Margin="0,0,0,5"/>
+                                                    <TextBlock Text="إزالة قاعدة النطاق المحددة / Remove the selected range rule"/>
+                                                </StackPanel>
+                                            </Button.ToolTip>
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </GroupBox>
+
+                            <!-- Result Limit -->
+                            <GroupBox Header="حد النتائج / Result Limit" Margin="0,0,0,15" Padding="10" Width="400">
+                                <StackPanel>
+                                    <CheckBox x:Name="EnableResultLimitCheckBox" 
+                                              Content="تحديد النتائج / Limit Results"
+                                              IsChecked="{Binding EnableResultLimit}"
+                                              Margin="0,5">
+                                        <CheckBox.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="تحديد النتائج / Limit Results" Margin="0,0,0,5"/>
+                                                <TextBlock Text="تحديد عدد النتائج المعروضة / Limit the number of displayed results"/>
+                                            </StackPanel>
+                                        </CheckBox.ToolTip>
+                                    </CheckBox>
+                                    
+                                    <Slider x:Name="ResultLimitSlider" 
+                                            Minimum="1" 
+                                            Maximum="5000" 
+                                            Value="{Binding ResultLimit}"
+                                            IsEnabled="{Binding EnableResultLimit}"
+                                            Margin="0,10">
+                                        <Slider.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="شريط التمرير / Slider" Margin="0,0,0,5"/>
+                                                <TextBlock Text="اضبط عدد النتائج المعروضة / Adjust the number of displayed results"/>
+                                            </StackPanel>
+                                        </Slider.ToolTip>
+                                    </Slider>
+                                    
+                                    <TextBlock Text="{Binding ResultLimit, StringFormat='الحد: {0} نتيجة / Limit: {0} results'}" 
+                                               HorizontalAlignment="Center"
+                                               Margin="0,5"/>
+                                </StackPanel>
+                            </GroupBox>
+
+                            <!-- File Selection -->
+                            <GroupBox Header="اختيار الملف / File Selection" Margin="0,0,0,15" Padding="10" Width="400">
+                                <StackPanel>
+                                    <CheckBox x:Name="EnableFileFilterCheckBox" 
+                                              Content="تمكين تصفية الملفات / Enable File Filtering"
+                                              IsChecked="{Binding EnableFileFilter}"
+                                              Margin="0,5">
+                                        <CheckBox.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="تمكين تصفية الملفات / Enable File Filtering" Margin="0,0,0,5"/>
+                                                <TextBlock Text="تفعيل تصفية النتائج حسب الملفات / Enable filtering results by files"/>
+                                            </StackPanel>
+                                        </CheckBox.ToolTip>
+                                    </CheckBox>
+                                    
+                                    <ListBox x:Name="FileFilterListBox" 
+                                             ItemsSource="{Binding AvailableFiles}"
+                                             Margin="0,10"
+                                             Height="150"
+                                             SelectionMode="Multiple"
+                                             IsEnabled="{Binding EnableFileFilter}">
+                                        <ListBox.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold" Text="الملفات المتاحة / Available Files" Margin="0,0,0,5"/>
+                                                <TextBlock Text="اختر الملفات لتصفية النتائج / Select files to filter results"/>
+                                            </StackPanel>
+                                        </ListBox.ToolTip>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <CheckBox Content="{Binding Name}" 
+                                                          IsChecked="{Binding IsSelected}"
+                                                          Margin="5">
+                                                    <CheckBox.ToolTip>
+                                                        <StackPanel>
+                                                            <TextBlock FontWeight="Bold" Text="تحديد الملف / Select File" Margin="0,0,0,5"/>
+                                                            <TextBlock Text="اختر هذا الملف للتضمين في التصفية / Select this file to include in filtering"/>
+                                                        </StackPanel>
+                                                    </CheckBox.ToolTip>
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </StackPanel>
+                            </GroupBox>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Action Buttons -->
+        <Border Grid.Row="2" Background="{StaticResource PrimaryBackgroundBrush}" Padding="15">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="{DynamicResource ApplyFilters}" 
+                        Command="{Binding ApplyFilterCommand}"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Width="120"
+                        Height="35"
+                        Margin="0,0,10,0">
+                    <Button.ToolTip>
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" Text="{DynamicResource ApplyFilters}" Margin="0,0,0,5"/>
+                            <TextBlock Text="تطبيق إعدادات التصفية وتنفيذ البحث / Apply filter settings and execute search"/>
+                        </StackPanel>
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="حفظ المرشح / Save Filter" 
+                        Command="{Binding SaveFilterCommand}"
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Width="120"
+                        Height="35"
+                        Margin="0,0,10,0">
+                    <Button.ToolTip>
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" Text="حفظ المرشح / Save Filter" Margin="0,0,0,5"/>
+                            <TextBlock Text="حفظ إعدادات التصفية الحالية / Save current filter settings"/>
+                        </StackPanel>
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="تحميل المرشح / Load Filter" 
+                        Command="{Binding LoadFilterCommand}"
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Width="120"
+                        Height="35"
+                        Margin="0,0,10,0">
+                    <Button.ToolTip>
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" Text="تحميل المرشح / Load Filter" Margin="0,0,0,5"/>
+                            <TextBlock Text="تحميل إعدادات التصفية المحفوظة / Load saved filter settings"/>
+                        </StackPanel>
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="{DynamicResource ResetFilters}" 
+                        Command="{Binding ResetFilterCommand}"
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Width="120"
+                        Height="35"
+                        Margin="0,0,10,0">
+                    <Button.ToolTip>
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" Text="{DynamicResource ResetFilters}" Margin="0,0,0,5"/>
+                            <TextBlock Text="إعادة تعيين جميع إعدادات التصفية / Reset all filter settings"/>
+                        </StackPanel>
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="{DynamicResource Cancel}" 
+                        Command="{Binding CancelCommand}"
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Width="120"
+                        Height="35">
+                    <Button.ToolTip>
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" Text="{DynamicResource Cancel}" Margin="0,0,0,5"/>
+                            <TextBlock Text="إلغاء العملية وعدم تطبيق التغييرات / Cancel the operation and discard changes"/>
+                        </StackPanel>
+                    </Button.ToolTip>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

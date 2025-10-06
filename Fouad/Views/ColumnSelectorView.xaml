@@ -1,0 +1,48 @@
+<UserControl x:Class="Fouad.Views.ColumnSelectorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Fouad.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="800">
+    <Grid Style="{StaticResource EnhancedColumnSelectorStyle}">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            <StackPanel Orientation="Horizontal" Margin="15,0">
+                <Button Width="160" 
+                        Height="35" 
+                        Margin="0,0,15,0"
+                        Command="{Binding ToggleAllColumnsCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource PrimaryButtonStyle}">
+                            <Setter Property="Content" Value="Select All" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding AreAllSelected}" Value="True">
+                                    <Setter Property="Content" Value="Unselect All" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                
+                <ItemsControl ItemsSource="{Binding Columns}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="{Binding Name}" 
+                                      IsChecked="{Binding IsSelected}"
+                                      Width="120" 
+                                      Height="35" 
+                                      Margin="0,0,10,0"
+                                      Style="{StaticResource BaseCheckBoxStyle}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

@@ -1,0 +1,247 @@
+<UserControl x:Class="Fouad.Views.SideBarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Fouad.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="250">
+    <Grid x:Name="SidebarGrid">
+        <Grid.Style>
+            <Style TargetType="Grid">
+                <Setter Property="Background" Value="{StaticResource SidebarBackgroundBrush}"/>
+            </Style>
+        </Grid.Style>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Header with collapse button -->
+            <RowDefinition Height="*"/>
+            <!-- Main content area -->
+        </Grid.RowDefinitions>
+        
+        <!-- Modern Header with collapse button -->
+        <Border Grid.Row="0" 
+                Background="{StaticResource PrimaryDarkColorBrush}" 
+                BorderBrush="{StaticResource BorderBrush}" 
+                BorderThickness="0,0,0,1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0" 
+                           Text="{DynamicResource ControlPanel}" 
+                           Foreground="White" 
+                           Style="{StaticResource ModernHeaderTextBlockStyle}"
+                           VerticalAlignment="Center"
+                           Margin="15,0"/>
+                
+                <Button x:Name="CollapseButton" 
+                        Grid.Column="1" 
+                        Content="&lt;" 
+                        Width="35" 
+                        Height="35"
+                        Style="{StaticResource ModernPrimaryButtonStyle}"
+                        Foreground="White"
+                        BorderBrush="Transparent"
+                        VerticalAlignment="Center"
+                        Click="CollapseButton_Click"
+                        ToolTip="Collapse/Expand Sidebar"/>
+            </Grid>
+        </Border>
+        
+        <!-- Main content area with scrollable panel -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="SidebarContentPanel" Margin="15">
+                <!-- File Management Section -->
+                <TextBlock Text="{DynamicResource FileManagement}" 
+                           Style="{StaticResource ModernHeaderTextBlockStyle}"
+                           Margin="0,15,0,10"/>
+                
+                <Button x:Name="AddNewFileButton" 
+                        Content="{DynamicResource AddNewFile}" 
+                        Style="{StaticResource ModernPrimaryButtonStyle}" 
+                        Command="{Binding AddNewFileCommand}"
+                        Margin="0,0,0,8"
+                        Padding="10,8"
+                        HorizontalContentAlignment="Left"
+/>
+                
+                <Button x:Name="ImportFileButton" 
+                        Content="{DynamicResource ImportFile}" 
+                        Style="{StaticResource ModernSecondaryButtonStyle}" 
+                        Command="{Binding ImportFileCommand}"
+                        Margin="0,0,0,8"
+                        Padding="10,8"
+                        HorizontalContentAlignment="Left"
+/>
+                
+                <Button x:Name="ExportFileButton" 
+                        Content="{DynamicResource ExportFile}" 
+                        Style="{StaticResource ModernSecondaryButtonStyle}" 
+                        Command="{Binding ExportFileCommand}"
+                        Margin="0,0,0,15"
+                        Padding="10,8"
+                        HorizontalContentAlignment="Left"
+/>
+                
+                <!-- Data Management Section -->
+                <TextBlock Text="{DynamicResource DataManagement}" 
+                           Style="{StaticResource ModernHeaderTextBlockStyle}"
+                           Margin="0,0,0,10"/>
+                
+                <Button x:Name="BackupButton" 
+                        Content="{DynamicResource Backup}" 
+                        Style="{StaticResource ModernSecondaryButtonStyle}" 
+                        Command="{Binding BackupCommand}"
+                        Margin="0,0,0,8"
+                        Padding="10,8"
+                        HorizontalContentAlignment="Left"
+/>
+                
+                <Button x:Name="RestoreButton" 
+                        Content="{DynamicResource Restore}" 
+                        Style="{StaticResource ModernSecondaryButtonStyle}" 
+                        Command="{Binding RestoreCommand}"
+                        Margin="0,0,0,8"
+                        Padding="10,8"
+                        HorizontalContentAlignment="Left"
+/>
+                
+                <Button x:Name="ClearHistoryButton" 
+                        Content="{DynamicResource ClearHistory}" 
+                        Style="{StaticResource ModernDeleteButtonStyle}" 
+                        Command="{Binding ClearHistoryCommand}"
+                        Margin="0,0,0,8"
+                        Padding="10,8"
+                        HorizontalContentAlignment="Left"
+/>
+                
+                <!-- Advanced Operations Section -->
+                <TextBlock Text="{DynamicResource AdvancedOperations}" 
+                           Style="{StaticResource ModernHeaderTextBlockStyle}"
+                           Margin="0,0,0,10"/>
+                
+                <Button x:Name="ArchiveButton" 
+                        Content="{DynamicResource ArchiveSelected}" 
+                        Style="{StaticResource ModernSecondaryButtonStyle}" 
+                        Command="{Binding ArchiveSelectedCommand}"
+                        Margin="0,0,0,8"
+                        Padding="10,8"
+                        HorizontalContentAlignment="Left"
+/>
+                
+                <Button x:Name="CompressButton" 
+                        Content="{DynamicResource CompressSelected}" 
+                        Style="{StaticResource ModernSecondaryButtonStyle}" 
+                        Command="{Binding CompressSelectedCommand}"
+                        Margin="0,0,0,8"
+                        Padding="10,8"
+                        HorizontalContentAlignment="Left"
+/>
+                
+                <Button x:Name="EncryptButton" 
+                        Content="{DynamicResource EncryptSelected}" 
+                        Style="{StaticResource ModernDeleteButtonStyle}" 
+                        Command="{Binding EncryptSelectedCommand}"
+                        Margin="0,0,0,15"
+                        Padding="10,8"
+                        HorizontalContentAlignment="Left"
+/>
+                
+                <!-- Search Section -->
+                <TextBlock Text="{DynamicResource Search}" 
+                           Style="{StaticResource ModernHeaderTextBlockStyle}"
+                           Margin="0,0,0,10"/>
+                
+                <TextBox x:Name="SearchTextBox" 
+                         Text="{Binding SearchText, UpdateSourceTrigger=LostFocus}"
+                         Style="{StaticResource ModernSearchTextBoxStyle}"
+                         Tag="{DynamicResource SearchPlaceholder}"
+                         Margin="0,0,0,8"
+                         Padding="10,8"
+ />
+                
+                <Button x:Name="SearchButton" 
+                        Content="{DynamicResource Search}" 
+                        Style="{StaticResource ModernPrimaryButtonStyle}" 
+                        Command="{Binding SearchCommand}"
+                        Margin="0,0,0,15"
+                        Padding="10,8"
+/>
+                
+                <!-- Settings Section -->
+                <TextBlock Text="{DynamicResource Settings}" 
+                           Style="{StaticResource ModernHeaderTextBlockStyle}"
+                           Margin="0,0,0,10"/>
+                
+                <CheckBox x:Name="AutoBackupCheckBox" 
+                          Content="{DynamicResource EnableAutoBackup}" 
+                          IsChecked="{Binding AutoBackupEnabled}"
+                          Style="{StaticResource ModernCheckBoxStyle}"
+                          Margin="0,0,0,8"
+  />
+                
+                <CheckBox x:Name="NotificationsCheckBox" 
+                          Content="{DynamicResource EnableNotifications}" 
+                          IsChecked="{Binding NotificationsEnabled}"
+                          Style="{StaticResource ModernCheckBoxStyle}"
+                          Margin="0,0,0,8"
+  />
+                
+                <CheckBox x:Name="DarkModeCheckBox" 
+                          Content="{DynamicResource EnableDarkMode}" 
+                          IsChecked="{Binding DarkModeEnabled}"
+                          Style="{StaticResource ModernCheckBoxStyle}"
+                          Margin="0,0,0,15"
+  />
+                
+                <Button x:Name="SettingsButton" 
+                        Content="{DynamicResource Settings}" 
+                        Style="{StaticResource ModernSecondaryButtonStyle}" 
+                        Command="{Binding SettingsCommand}"
+                        Margin="0,0,0,15"
+                        Padding="10,8"
+/>
+                
+                <!-- Recent Files Section -->
+                <TextBlock Text="{DynamicResource RecentFiles}" 
+                           Style="{StaticResource ModernHeaderTextBlockStyle}"
+                           Margin="0,0,0,10"/>
+                
+                <ListBox x:Name="RecentFilesListBox" 
+                         ItemsSource="{Binding FilteredHistoryItems}"
+                         Style="{StaticResource ModernListBoxStyle}"
+                         Height="200"
+                         Margin="0,0,0,15">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="{StaticResource SurfaceLightBrush}" 
+                                    BorderBrush="{StaticResource BorderBrush}" 
+                                    BorderThickness="1" 
+                                    CornerRadius="4" 
+                                    Margin="2" 
+                                    Padding="8">
+                                <StackPanel Orientation="Vertical">
+                                    <CheckBox Content="{Binding FileName}" 
+                                              IsChecked="{Binding IsSelected}"
+                                              Style="{StaticResource ModernCheckBoxStyle}"
+                                              FontWeight="SemiBold"/>
+                                    <TextBlock Text="{Binding SearchDate, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}" 
+                                               Style="{StaticResource ModernSecondaryTextBlockStyle}" 
+                                               Margin="0,2,0,0"/>
+                                    <TextBlock Text="{Binding SearchTerm}" 
+                                               Style="{StaticResource ModernSecondaryTextBlockStyle}"
+                                               TextWrapping="Wrap"
+                                               Margin="0,2,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

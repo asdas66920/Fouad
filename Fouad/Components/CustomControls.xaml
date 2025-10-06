@@ -1,0 +1,51 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Import necessary resources -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Fouad;component/Themes/Colors.xaml"/>
+        <ResourceDictionary Source="/Fouad;component/Themes/Brushes.xaml"/>
+        <ResourceDictionary Source="/Fouad;component/Themes/Fonts.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!-- Custom Search Box Control -->
+    <Style x:Key="CustomSearchBoxStyle" TargetType="TextBox">
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="20">
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                          Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <TextBlock x:Name="placeholderText" 
+                                   Text="Search..." 
+                                   VerticalAlignment="Center" 
+                                   Margin="15,0,0,0" 
+                                   Foreground="Gray" 
+                                   Visibility="Collapsed"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Text" Value="">
+                            <Setter TargetName="placeholderText" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryColorBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryDarkColorBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

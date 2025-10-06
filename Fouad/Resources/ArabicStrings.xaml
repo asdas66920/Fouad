@@ -1,0 +1,211 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xml:lang="ar-SA">
+    
+    <!-- Window Titles -->
+    <sys:String x:Key="MainWindowTitle">بحث أسهل</sys:String>
+    <sys:String x:Key="SettingsWindowTitle">الإعدادات</sys:String>
+    <sys:String x:Key="SearchFilterWindowTitle">مرشح البحث</sys:String>
+    <sys:String x:Key="ReviewWindowTitle">مراجعة البيانات</sys:String>
+    <sys:String x:Key="ArchivedFilesWindowTitle">الملفات المؤرشفة</sys:String>
+    
+    <!-- Top Bar -->
+    <sys:String x:Key="ManageAudio">إدارة الصوت</sys:String>
+    <sys:String x:Key="InsertFile">إدراج ملف</sys:String>
+    <sys:String x:Key="DeleteFile">حذف ملف</sys:String>
+    <sys:String x:Key="Settings">الإعدادات</sys:String>
+    <sys:String x:Key="Store">تخزين</sys:String>
+    
+    <!-- Info Bar -->
+    <sys:String x:Key="FileName">اسم الملف</sys:String>
+    <sys:String x:Key="Size">الحجم</sys:String>
+    <sys:String x:Key="Rows">الصفوف</sys:String>
+    <sys:String x:Key="Columns">الأعمدة</sys:String>
+    <sys:String x:Key="Modified">آخر تعديل</sys:String>
+    <sys:String x:Key="ArchivedFilesButton">الملفات المؤرشفة</sys:String>
+    
+    <!-- Column Selector -->
+    <sys:String x:Key="ColumnSelectorTitle">اختر الأعمدة للعرض</sys:String>
+    <sys:String x:Key="SelectAll">تحديد الكل</sys:String>
+    <sys:String x:Key="DeselectAll">إلغاء تحديد الكل</sys:String>
+    <sys:String x:Key="Apply">تطبيق</sys:String>
+    <sys:String x:Key="Cancel">إلغاء</sys:String>
+    
+    <!-- Results Table -->
+    <sys:String x:Key="Results">النتائج</sys:String>
+    <sys:String x:Key="ResultsTableTitle">نتائج البحث</sys:String>
+    <sys:String x:Key="SearchPlaceholder">أدخل مصطلح البحث...</sys:String>
+    <sys:String x:Key="AdvancedSearch">بحث متقدم</sys:String>
+    <sys:String x:Key="SearchFilter">مرشح البحث</sys:String>
+    <sys:String x:Key="ExportToExcel">تصدير إلى Excel</sys:String>
+    <sys:String x:Key="ExportToCSV">تصدير إلى CSV</sys:String>
+    <sys:String x:Key="CopyToClipboard">نسخ إلى الحافظة</sys:String>
+    <sys:String x:Key="AddToHistory">إضافة إلى السجل</sys:String>
+    
+    <!-- History Table -->
+    <sys:String x:Key="HistoryTableTitle">سجل البحث</sys:String>
+    <sys:String x:Key="History">السجل</sys:String>
+    <sys:String x:Key="Select">تحديد</sys:String>
+    <sys:String x:Key="ID">المعرف</sys:String>
+    <sys:String x:Key="SearchTerm">مصطلح البحث</sys:String>
+    <sys:String x:Key="SearchDate">تاريخ البحث</sys:String>
+    <sys:String x:Key="ResultCount">عدد النتائج</sys:String>
+    <sys:String x:Key="Actions">الإجراءات</sys:String>
+    <sys:String x:Key="View">عرض</sys:String>
+    <sys:String x:Key="Delete">حذف</sys:String>
+    <sys:String x:Key="Edit">تعديل</sys:String>
+    <sys:String x:Key="Copy">نسخ</sys:String>
+    <sys:String x:Key="ExportToPDF">تصدير إلى PDF</sys:String>
+    <sys:String x:Key="Backup">نسخ احتياطي</sys:String>
+    <sys:String x:Key="Share">مشاركة</sys:String>
+    <sys:String x:Key="ClearHistory">مسح السجل</sys:String>
+    <sys:String x:Key="ExportHistory">تصدير السجل</sys:String>
+    
+    <!-- Search Filter Window -->
+    <sys:String x:Key="SearchFilterHeader">خيارات مرشح البحث</sys:String>
+    <sys:String x:Key="SearchFilterSubtitle">قم بتخصيص بحثك باستخدام خيارات التصفية المتقدمة</sys:String>
+    <sys:String x:Key="FilterOptions">خيارات التصفية</sys:String>
+    <sys:String x:Key="CaseSensitive">حساس لحالة الأحرف</sys:String>
+    <sys:String x:Key="WholeWordsOnly">كلمات كاملة فقط</sys:String>
+    <sys:String x:Key="UseRegex">استخدام التعبيرات العالية</sys:String>
+    <sys:String x:Key="DateRange">نطاق التاريخ</sys:String>
+    <sys:String x:Key="FromDate">من تاريخ</sys:String>
+    <sys:String x:Key="ToDate">إلى تاريخ</sys:String>
+    <sys:String x:Key="ColumnFilters">مرشحات الأعمدة</sys:String>
+    <sys:String x:Key="AddColumnFilter">إضافة مرشح عمود</sys:String>
+    <sys:String x:Key="RemoveColumnFilter">إزالة مرشح عمود</sys:String>
+    <sys:String x:Key="ApplyFilters">تطبيق المرشحات</sys:String>
+    <sys:String x:Key="ResetFilters">إعادة تعيين المرشحات</sys:String>
+    
+    <!-- Review Window -->
+    <sys:String x:Key="ReviewHeader">مراجعة البيانات</sys:String>
+    <sys:String x:Key="ReviewSubtitle">مراجعة ومعالجة البيانات المستوردة</sys:String>
+    <sys:String x:Key="NewRecordsTab">السجلات الجديدة</sys:String>
+    <sys:String x:Key="MatchRecordsTab">سجلات مطابقة</sys:String>
+    <sys:String x:Key="DisagreementRecordsTab">الخلافات</sys:String>
+    <sys:String x:Key="Ignore">تجاهل</sys:String>
+    <sys:String x:Key="Update">تحديث</sys:String>
+    <sys:String x:Key="AddAsNew">إضافة كجديد</sys:String>
+    <sys:String x:Key="ProcessDecisions">معالجة القرارات</sys:String>
+    <sys:String x:Key="CancelReview">إلغاء</sys:String>
+    
+    <!-- Archived Files Window -->
+    <sys:String x:Key="ArchivedFilesHeader">الملفات المؤرشفة</sys:String>
+    <sys:String x:Key="ArchivedFilesSubtitle">إدارة والعمل مع ملفاتك المؤرشفة</sys:String>
+    <sys:String x:Key="SearchArchivedFilesTooltip">البحث في الملفات المؤرشفة بالاسم</sys:String>
+    <sys:String x:Key="SearchButton">بحث</sys:String>
+    <sys:String x:Key="RefreshButton">تحديث</sys:String>
+    <sys:String x:Key="ArchiveIdColumn">المعرف</sys:String>
+    <sys:String x:Key="FileNameColumn">اسم الملف</sys:String>
+    <sys:String x:Key="UploadDateColumn">تاريخ الرفع</sys:String>
+    <sys:String x:Key="UploadedByColumn">المرفوع بواسطة</sys:String>
+    <sys:String x:Key="FileSizeColumn">حجم الملف</sys:String>
+    <sys:String x:Key="RowsColumn">الصفوف</sys:String>
+    <sys:String x:Key="ColumnsColumn">الأعمدة</sys:String>
+    <sys:String x:Key="WorkOnSelectedFileButton">العمل على الملف المحدد</sys:String>
+    <sys:String x:Key="WorkOnMultipleFilesButton">العمل على عدة ملفات</sys:String>
+    <sys:String x:Key="CompareFilesButton">مقارنة الملفات</sys:String>
+    <sys:String x:Key="ViewLatestInfoButton">عرض أحدث المعلومات</sys:String>
+    <sys:String x:Key="CloseButton">إغلاق</sys:String>
+    
+    <!-- Sidebar -->
+    <sys:String x:Key="ControlPanel">لوحة التحكم</sys:String>
+    <sys:String x:Key="FileManagement">إدارة الملفات</sys:String>
+    <sys:String x:Key="AddNewFile">إضافة ملف جديد</sys:String>
+    <sys:String x:Key="ImportFile">استيراد ملف</sys:String>
+    <sys:String x:Key="ExportFile">تصدير ملف</sys:String>
+    <sys:String x:Key="DataManagement">إدارة البيانات</sys:String>
+    <sys:String x:Key="Restore">استعادة</sys:String>
+    <sys:String x:Key="AdvancedOperations">العمليات المتقدمة</sys:String>
+    <sys:String x:Key="ArchiveSelected">أرشفة المحدد</sys:String>
+    <sys:String x:Key="CompressSelected">ضغط المحدد</sys:String>
+    <sys:String x:Key="EncryptSelected">تشفير المحدد</sys:String>
+    <sys:String x:Key="Search">بحث</sys:String>
+    <sys:String x:Key="EnableAutoBackup">تمكين النسخ الاحتياطي التلقائي</sys:String>
+    <sys:String x:Key="EnableNotifications">تمكين الإشعارات</sys:String>
+    <sys:String x:Key="EnableDarkMode">تمكين الوضع الداكن</sys:String>
+    <sys:String x:Key="LightModeEnabled">تم تفعيل الوضع الفاتح!</sys:String>
+    <sys:String x:Key="LightModeDisabled">تم تعطيل الوضع الفاتح!</sys:String>
+    <sys:String x:Key="RecentFiles">الملفات الأخيرة</sys:String>
+    <sys:String x:Key="FileOpened">تم فتح الملف</sys:String>
+    
+    <!-- Sidebar Tooltips -->
+    <sys:String x:Key="CollapseSidebarTooltip">طي/توسيع لوحة التحكم</sys:String>
+    <sys:String x:Key="AddNewFileTooltip">إنشاء ملف جديد</sys:String>
+    <sys:String x:Key="ImportFileTooltip">استيراد ملف موجود</sys:String>
+    <sys:String x:Key="ExportFileTooltip">تصدير الملفات المحددة</sys:String>
+    <sys:String x:Key="BackupTooltip">نسخ احتياطي للبيانات</sys:String>
+    <sys:String x:Key="RestoreTooltip">استعادة البيانات من نسخة احتياطية</sys:String>
+    <sys:String x:Key="ClearHistoryTooltip">مسح سجل البحث</sys:String>
+    <sys:String x:Key="ArchiveSelectedTooltip">أرشفة العناصر المحددة</sys:String>
+    <sys:String x:Key="CompressSelectedTooltip">ضغط العناصر المحددة</sys:String>
+    <sys:String x:Key="EncryptSelectedTooltip">تشفير العناصر المحددة</sys:String>
+    <sys:String x:Key="SearchTooltip">أدخل مصطلح البحث</sys:String>
+    <sys:String x:Key="SearchButtonTooltip">تنفيذ البحث</sys:String>
+    <sys:String x:Key="EnableAutoBackupTooltip">تمكين النسخ الاحتياطي التلقائي كل 30 دقيقة</sys:String>
+    <sys:String x:Key="EnableNotificationsTooltip">تمكين الإشعارات في التطبيق</sys:String>
+    <sys:String x:Key="EnableDarkModeTooltip">تغيير مظهر التطبيق إلى الوضع الداكن</sys:String>
+    <sys:String x:Key="SettingsButtonTooltip">فتح إعدادات التطبيق</sys:String>
+    
+    <!-- Settings Window -->
+    <sys:String x:Key="SettingsHeader">إعدادات التطبيق</sys:String>
+    <sys:String x:Key="AudioSettingsTab">إعدادات الصوت</sys:String>
+    <sys:String x:Key="DisplaySettingsTab">إعدادات العرض</sys:String>
+    <sys:String x:Key="SearchSettingsTab">إعدادات البحث</sys:String>
+    <sys:String x:Key="StorageSettingsTab">إعدادات التخزين</sys:String>
+    <sys:String x:Key="AdvancedSettingsTab">إعدادات متقدمة</sys:String>
+    <sys:String x:Key="EnableAudioFeedback">تمكين ردود الفعل الصوتية</sys:String>
+    <sys:String x:Key="SoundPack">حزمة الأصوات</sys:String>
+    <sys:String x:Key="IndividualSoundSettings">إعدادات الصوت الفردية</sys:String>
+    <sys:String x:Key="AddedSound">صوت الإضافة</sys:String>
+    <sys:String x:Key="AlreadyAddedSound">صوت الإضافة المكررة</sys:String>
+    <sys:String x:Key="ErrorSound">صوت الخطأ</sys:String>
+    <sys:String x:Key="NoResultsSound">صوت عدم وجود نتائج</sys:String>
+    <sys:String x:Key="SuccessSound">صوت النجاح</sys:String>
+    <sys:String x:Key="TestAudio">اختبار الصوت</sys:String>
+    <sys:String x:Key="DefaultPageSize">حجم الصفحة الافتراضي</sys:String>
+    <sys:String x:Key="EnableDarkModeSetting">تمكين الوضع الداكن</sys:String>
+    <sys:String x:Key="Language">اللغة</sys:String>
+    <sys:String x:Key="MaxSearchResults">الحد الأقصى لنتائج البحث</sys:String>
+    <sys:String x:Key="EnableFuzzySearch">تمكين البحث التقريبي</sys:String>
+    <sys:String x:Key="EnableCaseSensitiveSearch">تمكين البحث حساس لحالة الأحرف</sys:String>
+    <sys:String x:Key="DatabasePath">مسار قاعدة البيانات</sys:String>
+    <sys:String x:Key="MaxCacheSize">الحد الأقصى لحجم التخزين المؤقت (ميجابايت)</sys:String>
+    <sys:String x:Key="EnableAutoCleanup">تمكين التنظيف التلقائي</sys:String>
+    <sys:String x:Key="EnableLogging">تمكين التسجيل</sys:String>
+    <sys:String x:Key="MaxLogSize">الحد الأقصى لحجم السجل (ميجابايت)</sys:String>
+    <sys:String x:Key="EnablePerformanceOptimization">تمكين تحسين الأداء</sys:String>
+    <sys:String x:Key="ResetToDefaults">إعادة التعيين إلى الافتراضي</sys:String>
+    <sys:String x:Key="SaveSettings">حفظ الإعدادات</sys:String>
+    <sys:String x:Key="CancelSettings">إلغاء</sys:String>
+    <sys:String x:Key="SettingsSaved">تم حفظ الإعدادات</sys:String>
+    <sys:String x:Key="SettingsSavedSuccessfully">تم حفظ الإعدادات بنجاح!</sys:String>
+    <sys:String x:Key="SettingsError">خطأ في الإعدادات</sys:String>
+    <sys:String x:Key="ErrorSavingSettings">خطأ في حفظ الإعدادات: {0}</sys:String>
+    <sys:String x:Key="ResetSettingsConfirmation">هل أنت متأكد من أنك تريد إعادة تعيين جميع الإعدادات إلى قيمها الافتراضية؟</sys:String>
+    <sys:String x:Key="ResetSettingsTitle">إعادة تعيين الإعدادات</sys:String>
+    <sys:String x:Key="SettingsReset">تمت إعادة تعيين الإعدادات</sys:String>
+    <sys:String x:Key="SettingsResetSuccessfully">تمت إعادة تعيين جميع الإعدادات إلى قيمها الافتراضية.</sys:String>
+    <sys:String x:Key="AudioFeedbackDisabled">ردود الفعل الصوتية معطلة حالياً.</sys:String>
+    <sys:String x:Key="AudioTest">اختبار الصوت</sys:String>
+    
+    <!-- Dialog Messages -->
+    <sys:String x:Key="SelectFileToLoad">اختر ملفًا لتحميله</sys:String>
+    <sys:String x:Key="FileInsertedSuccessfully">تم إدراج الملف بنجاح!</sys:String>
+    <sys:String x:Key="Success">نجاح</sys:String>
+    <sys:String x:Key="ErrorLoadingFile">خطأ في تحميل الملف: {0}</sys:String>
+    <sys:String x:Key="FileLoadError">خطأ في تحميل الملف</sys:String>
+    <sys:String x:Key="FileDeletedSuccessfully">تم حذف الملف بنجاح!</sys:String>
+    <sys:String x:Key="FileDeleted">تم حذف الملف</sys:String>
+    <sys:String x:Key="SettingsWindowOpen">سيفتح نافذة الإعدادات هنا.</sys:String>
+    <sys:String x:Key="Adjustment">الإعدادات</sys:String>
+    <sys:String x:Key="DarkModeEnabled">تم تفعيل الوضع الداكن!</sys:String>
+    <sys:String x:Key="DarkModeDisabled">تم تعطيل الوضع الداكن!</sys:String>
+    <sys:String x:Key="ThemeChanged">تغيرت السمة</sys:String>
+    <sys:String x:Key="DataStoredSuccessfully">تم تخزين البيانات بنجاح!</sys:String>
+    <sys:String x:Key="DataStored">تم تخزين البيانات</sys:String>
+    <sys:String x:Key="ArchivedFilesFeatureNotImplemented">ميزة الملفات المؤرشفة لم تُنفذ بعد في الشريط الجانبي. يرجى استخدام زر "الملفات المؤرشفة" في شريط المعلومات.</sys:String>
+    <sys:String x:Key="FeatureNotImplementedTitle">الميزة غير مُنفذة</sys:String>
+    
+</ResourceDictionary>

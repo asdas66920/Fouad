@@ -1,0 +1,7 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- This file will contain generic commands that can be used throughout the application -->
+    <!-- Commands are typically defined in ViewModels, but this file can contain shared command definitions -->
+    
+</ResourceDictionary>

@@ -1,0 +1,77 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Import necessary resources -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Fouad;component/Themes/Colors.xaml"/>
+        <ResourceDictionary Source="/Fouad;component/Themes/Brushes.xaml"/>
+        <ResourceDictionary Source="/Fouad;component/Themes/Fonts.xaml"/>
+        <ResourceDictionary Source="/Fouad;component/Behaviors/Animations.xaml"/>
+        <ResourceDictionary Source="/Fouad;component/Behaviors/Triggers.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!-- Animated Title Style -->
+    <Style x:Key="AnimatedTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource AnimatedTitleTrigger}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Primary CheckBox Style with horizontally flipped check mark -->
+    <Style x:Key="PrimaryCheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Grid Background="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- Custom check box with horizontally flipped check mark -->
+                        <Border x:Name="CheckBoxBorder" 
+                                Width="16" 
+                                Height="16" 
+                                BorderBrush="{TemplateBinding Foreground}" 
+                                BorderThickness="1" 
+                                Background="Transparent"
+                                Margin="0,0,5,0">
+                            <Path x:Name="CheckMark" 
+                                  Data="M 0,4 4,8 8,0" 
+                                  Stroke="{TemplateBinding Foreground}" 
+                                  StrokeThickness="2" 
+                                  Visibility="Collapsed"
+                                  RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <ScaleTransform ScaleX="-1" ScaleY="1"/>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Border>
+                        
+                        <ContentPresenter Grid.Column="1" 
+                                          Content="{TemplateBinding Content}" 
+                                          HorizontalAlignment="Left" 
+                                          VerticalAlignment="Center"/>
+                    </Grid>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="CheckBoxBorder" Property="Background" Value="{StaticResource PrimaryColorBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

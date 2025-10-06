@@ -1,0 +1,38 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Import necessary resources -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Fouad;component/Themes/Colors.xaml"/>
+        <ResourceDictionary Source="/Fouad;component/Themes/Brushes.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!-- Error Template for TextBox -->
+    <ControlTemplate x:Key="ErrorTemplate">
+        <DockPanel>
+            <Border BorderBrush="{StaticResource DangerColorBrush}" BorderThickness="2" CornerRadius="3">
+                <AdornedElementPlaceholder/>
+            </Border>
+            <TextBlock DockPanel.Dock="Bottom" 
+                       Text="{Binding [0].ErrorContent}" 
+                       Foreground="{StaticResource DangerColorBrush}" 
+                       FontSize="12" 
+                       Margin="0,2,0,0"/>
+        </DockPanel>
+    </ControlTemplate>
+    
+    <!-- Warning Template for TextBox -->
+    <ControlTemplate x:Key="WarningTemplate">
+        <DockPanel>
+            <Border BorderBrush="{StaticResource WarningColorBrush}" BorderThickness="2" CornerRadius="3">
+                <AdornedElementPlaceholder/>
+            </Border>
+            <TextBlock DockPanel.Dock="Bottom" 
+                       Text="{Binding [0].ErrorContent}" 
+                       Foreground="{StaticResource WarningColorBrush}" 
+                       FontSize="12" 
+                       Margin="0,2,0,0"/>
+        </DockPanel>
+    </ControlTemplate>
+    
+</ResourceDictionary>

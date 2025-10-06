@@ -1,0 +1,68 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Font Families -->
+    <FontFamily x:Key="PrimaryFontFamily">Segoe UI</FontFamily>
+    <FontFamily x:Key="SecondaryFontFamily">Arial</FontFamily>
+    <FontFamily x:Key="MonospaceFontFamily">Consolas</FontFamily>
+    
+    <!-- Font Sizes -->
+    <sys:Double xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Key="FontSizeSmall">12</sys:Double>
+    <sys:Double xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Key="FontSizeNormal">14</sys:Double>
+    <sys:Double xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Key="FontSizeMedium">16</sys:Double>
+    <sys:Double xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Key="FontSizeLarge">18</sys:Double>
+    <sys:Double xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Key="FontSizeXLarge">20</sys:Double>
+    <sys:Double xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Key="FontSizeXXLarge">24</sys:Double>
+    <sys:Double xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Key="FontSizeXXXLarge">32</sys:Double>
+    
+    <!-- Font Weights -->
+    <FontWeight x:Key="FontWeightLight">Light</FontWeight>
+    <FontWeight x:Key="FontWeightNormal">Normal</FontWeight>
+    <FontWeight x:Key="FontWeightMedium">Medium</FontWeight>
+    <FontWeight x:Key="FontWeightBold">Bold</FontWeight>
+    <FontWeight x:Key="FontWeightBlack">Black</FontWeight>
+    
+    <!-- Text Styles -->
+    <Style x:Key="TextStyleBase" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightNormal}"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+    </Style>
+    
+    <Style x:Key="TextStyleSmall" TargetType="TextBlock" BasedOn="{StaticResource TextStyleBase}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
+    </Style>
+    
+    <Style x:Key="TextStyleMedium" TargetType="TextBlock" BasedOn="{StaticResource TextStyleBase}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeMedium}"/>
+    </Style>
+    
+    <Style x:Key="TextStyleLarge" TargetType="TextBlock" BasedOn="{StaticResource TextStyleBase}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}"/>
+    </Style>
+    
+    <Style x:Key="TextStyleTitle" TargetType="TextBlock" BasedOn="{StaticResource TextStyleBase}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXXLarge}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
+    </Style>
+    
+    <Style x:Key="TextStyleHeading" TargetType="TextBlock" BasedOn="{StaticResource TextStyleBase}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXLarge}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
+    </Style>
+    
+    <!-- Section Title Style -->
+    <Style x:Key="SectionTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource TextStyleHeading}">
+        <Setter Property="Foreground" Value="{StaticResource PrimaryColorBrush}"/>
+        <Setter Property="Margin" Value="0,10,0,10"/>
+    </Style>
+    
+    <!-- Sidebar Title Style -->
+    <Style x:Key="SidebarTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource TextStyleHeading}">
+        <Setter Property="Foreground" Value="{StaticResource PrimaryColorBrush}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,0,20"/>
+    </Style>
+    
+</ResourceDictionary>

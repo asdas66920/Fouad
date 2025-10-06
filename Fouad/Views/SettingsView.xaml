@@ -1,0 +1,117 @@
+<Window x:Class="Fouad.Views.SettingsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fouad.Views"
+        mc:Ignorable="d"
+        Title="Settings" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        FlowDirection="LeftToRight">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#2C3E50" Padding="15">
+            <TextBlock Text="Settings" FontSize="24" FontWeight="Bold" Foreground="White"/>
+        </Border>
+
+        <!-- Tab Control for Settings Categories -->
+        <TabControl Grid.Row="1" Margin="10" Background="White">
+            <!-- Audio Settings Tab -->
+            <TabItem Header="Audio Settings">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+                        <CheckBox Content="Enable Audio Feedback" IsChecked="{Binding EnableAudioFeedback}" Margin="0,10"/>
+                        
+                        <TextBlock Text="Sound Pack" FontWeight="Bold" Margin="0,15,0,5"/>
+                        <ComboBox ItemsSource="{Binding SoundPacks}" SelectedItem="{Binding SelectedSoundPack}" Width="200" HorizontalAlignment="Left"/>
+                        
+                        <TextBlock Text="Individual Sound Settings" FontWeight="Bold" Margin="0,15,0,10"/>
+                        
+                        <CheckBox Content="Added Sound" IsChecked="{Binding AddedSoundEnabled}" Margin="0,5"/>
+                        <CheckBox Content="Already Added Sound" IsChecked="{Binding AlreadyAddedSoundEnabled}" Margin="0,5"/>
+                        <CheckBox Content="Error Sound" IsChecked="{Binding ErrorSoundEnabled}" Margin="0,5"/>
+                        <CheckBox Content="No Results Sound" IsChecked="{Binding NoResultsSoundEnabled}" Margin="0,5"/>
+                        <CheckBox Content="Success Sound" IsChecked="{Binding SuccessSoundEnabled}" Margin="0,5"/>
+                        
+                        <Button Content="Test Audio" Command="{Binding TestAudioCommand}" Width="100" Height="30" Margin="0,20,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            
+            <!-- Display Settings Tab -->
+            <TabItem Header="Display Settings">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Default Page Size" FontWeight="Bold" Margin="0,10,0,5"/>
+                        <Slider Minimum="10" Maximum="200" Value="{Binding DefaultPageSize}" Width="200" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding DefaultPageSize, StringFormat='{}{0} items per page'}" Margin="0,5,0,15"/>
+                        
+                        <CheckBox Content="Enable Dark Mode" IsChecked="{Binding EnableDarkMode}" Margin="0,10"/>
+                        
+                        <TextBlock Text="Language" FontWeight="Bold" Margin="0,15,0,5"/>
+                        <ComboBox ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}" Width="200" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            
+            <!-- Search Settings Tab -->
+            <TabItem Header="Search Settings">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Max Search Results" FontWeight="Bold" Margin="0,10,0,5"/>
+                        <Slider Minimum="100" Maximum="5000" Value="{Binding MaxSearchResults}" Width="200" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding MaxSearchResults, StringFormat='{}{0} results'}" Margin="0,5,0,15"/>
+                        
+                        <CheckBox Content="Enable Fuzzy Search" IsChecked="{Binding EnableFuzzySearch}" Margin="0,10"/>
+                        <CheckBox Content="Enable Case Sensitive Search" IsChecked="{Binding EnableCaseSensitiveSearch}" Margin="0,10"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            
+            <!-- Storage Settings Tab -->
+            <TabItem Header="Storage Settings">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Database Path" FontWeight="Bold" Margin="0,10,0,5"/>
+                        <TextBox Text="{Binding DatabasePath}" Width="400" HorizontalAlignment="Left" IsReadOnly="True"/>
+                        
+                        <TextBlock Text="Max Cache Size" FontWeight="Bold" Margin="0,15,0,5"/>
+                        <Slider Minimum="10" Maximum="1000" Value="{Binding MaxCacheSize}" Width="200" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding MaxCacheSize, StringFormat='{}{0} MB'}" Margin="0,5,0,15"/>
+                        
+                        <CheckBox Content="Enable Auto Cleanup" IsChecked="{Binding EnableAutoCleanup}" Margin="0,10"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            
+            <!-- Advanced Settings Tab -->
+            <TabItem Header="Advanced Settings">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+                        <CheckBox Content="Enable Logging" IsChecked="{Binding EnableLogging}" Margin="0,10"/>
+                        
+                        <TextBlock Text="Max Log Size" FontWeight="Bold" Margin="0,15,0,5"/>
+                        <Slider Minimum="1" Maximum="100" Value="{Binding MaxLogSize}" Width="200" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding MaxLogSize, StringFormat='{}{0} MB'}" Margin="0,5,0,15"/>
+                        
+                        <CheckBox Content="Enable Performance Optimization" IsChecked="{Binding EnablePerformanceOptimization}" Margin="0,10"/>
+                        
+                        <Button Content="Reset to Defaults" Command="{Binding ResetToDefaultsCommand}" Width="150" Height="30" Margin="0,30,0,0" HorizontalAlignment="Left" Background="#D9534F" Foreground="White"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+        
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button Content="Save Settings" Command="{Binding SaveCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Width="100" Height="30" Margin="0,0,10,0" Background="#5CB85C" Foreground="White"/>
+            <Button Content="Cancel Settings" Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Width="100" Height="30" Background="#D9534F" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Window>
