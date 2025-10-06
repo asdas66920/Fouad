@@ -1,0 +1,217 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\views\\archivedfileswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\views\\archivedfileswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\views\\columnselectorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\views\\columnselectorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\views\\historytableview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\views\\historytableview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\views\\infobarview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\views\\infobarview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\views\\resultstableview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\views\\resultstableview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\views\\reviewwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\views\\reviewwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\views\\searchfilterwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\views\\searchfilterwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\views\\settingsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\views\\settingsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\views\\sidebarview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\views\\sidebarview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\viewmodels\\infobarviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\viewmodels\\infobarviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|c:\\users\\khaled\\onedrive\\desktop\\fius1\\fouad\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A78A7680-785E-4F4F-8A19-8A8E1F2F2E7A}|Fouad\\Fouad.csproj|solutionrelative:fouad\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ArchivedFilesWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\ArchivedFilesWindow.xaml",
+              "RelativeDocumentMoniker": "Fouad\\Views\\ArchivedFilesWindow.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\ArchivedFilesWindow.xaml",
+              "RelativeToolTip": "Fouad\\Views\\ArchivedFilesWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:43:23.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ColumnSelectorView.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\ColumnSelectorView.xaml",
+              "RelativeDocumentMoniker": "Fouad\\Views\\ColumnSelectorView.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\ColumnSelectorView.xaml",
+              "RelativeToolTip": "Fouad\\Views\\ColumnSelectorView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:43:20.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HistoryTableView.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\HistoryTableView.xaml",
+              "RelativeDocumentMoniker": "Fouad\\Views\\HistoryTableView.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\HistoryTableView.xaml",
+              "RelativeToolTip": "Fouad\\Views\\HistoryTableView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:43:14.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InfoBarView.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\InfoBarView.xaml",
+              "RelativeDocumentMoniker": "Fouad\\Views\\InfoBarView.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\InfoBarView.xaml",
+              "RelativeToolTip": "Fouad\\Views\\InfoBarView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:43:11.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ResultsTableView.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\ResultsTableView.xaml",
+              "RelativeDocumentMoniker": "Fouad\\Views\\ResultsTableView.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\ResultsTableView.xaml",
+              "RelativeToolTip": "Fouad\\Views\\ResultsTableView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:43:02.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReviewWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\ReviewWindow.xaml",
+              "RelativeDocumentMoniker": "Fouad\\Views\\ReviewWindow.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\ReviewWindow.xaml",
+              "RelativeToolTip": "Fouad\\Views\\ReviewWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:42:57.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SearchFilterWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\SearchFilterWindow.xaml",
+              "RelativeDocumentMoniker": "Fouad\\Views\\SearchFilterWindow.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\SearchFilterWindow.xaml",
+              "RelativeToolTip": "Fouad\\Views\\SearchFilterWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:42:54.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SettingsView.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\SettingsView.xaml",
+              "RelativeDocumentMoniker": "Fouad\\Views\\SettingsView.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\SettingsView.xaml",
+              "RelativeToolTip": "Fouad\\Views\\SettingsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:42:51.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SideBarView.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\SideBarView.xaml",
+              "RelativeDocumentMoniker": "Fouad\\Views\\SideBarView.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\Views\\SideBarView.xaml",
+              "RelativeToolTip": "Fouad\\Views\\SideBarView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:42:49.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "InfoBarViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\ViewModels\\InfoBarViewModel.cs",
+              "RelativeDocumentMoniker": "Fouad\\ViewModels\\InfoBarViewModel.cs",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\ViewModels\\InfoBarViewModel.cs",
+              "RelativeToolTip": "Fouad\\ViewModels\\InfoBarViewModel.cs",
+              "ViewState": "AgIAAP8AAAAAAAAAAAAAABIBAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T02:41:20.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Fouad\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\MainWindow.xaml",
+              "RelativeToolTip": "Fouad\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:38:46.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\App.xaml",
+              "RelativeDocumentMoniker": "Fouad\\App.xaml",
+              "ToolTip": "C:\\Users\\khaled\\OneDrive\\Desktop\\Fius1\\Fouad\\App.xaml",
+              "RelativeToolTip": "Fouad\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-06T02:38:42.121Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
